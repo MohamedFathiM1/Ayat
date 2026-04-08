@@ -280,7 +280,7 @@ body {
     transform: translateX(-50%);
     border-width: 7px 7px 0 7px;
     border-style: solid;
-    border-color: rgba(182, 6, 220, 0.4) transparent transparent transparent;
+    border-color: rgb(0 199 162) transparent transparent transparent;
 }
 
 /* ============================================================
