@@ -37,13 +37,13 @@ body {
 }
 
 .shape:first-child {
-    background: linear-gradient(#9b22ea, #bf23f6);
+    background: linear-gradient(#006654, #00C49D);
     left: -80px;
     top: -80px;
 }
 
 .shape:last-child {
-    background: linear-gradient(to right, #ff512f, #f09819);
+    background: linear-gradient(to right, #001B1B, #00C49D);
     right: -30px;
     bottom: -80px;
 }
@@ -130,8 +130,8 @@ body {
     margin: 0;
     padding: 5px 20px;
     border-radius: 25px;
-    border: 1px solid #b606dc;
-    background-color: #c604eb;
+    border: 1px solid #00C49D;
+    background-color: #00C49D;
     color: white;
     font-size: 15px;
     width: 120px;
@@ -168,7 +168,7 @@ body {
     gap: 6px;
     padding: 6px 18px;
     border-radius: 25px;
-    border: 1px solid #b606dc;
+    border: 1px solid #006654;
     background-color: transparent;
     color: white;
     font-size: 15px;
@@ -183,7 +183,7 @@ body {
 }
 
 .btn-share:hover {
-    background-color: rgba(182, 6, 220, 0.2);
+    background-color: #006654;
 }
 
 .btn-share i {
@@ -200,9 +200,9 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 190px;
-    background: rgba(20, 10, 30, 0.85);
+    background: rgb(0 199 162 / 9%);
     backdrop-filter: blur(14px);
-    border: 1px solid rgba(182, 6, 220, 0.4);
+    border: 1px solid #00c7a2;
     border-radius: 14px;
     padding: 12px 10px;
     display: flex;
