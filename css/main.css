@@ -1,58 +1,68 @@
-*{
+/* ============================================================
+   BASE RESET & TYPOGRAPHY
+   ============================================================ */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 p {
     font-family: "Gulzar", serif;
     font-weight: 400;
     font-style: normal;
-  }
-  body{
+}
+
+body {
     background-color: #080710;
 }
-  .background{
+
+/* ============================================================
+   DECORATIVE BACKGROUND BLOBS
+   ============================================================ */
+.background {
     width: 430px;
     height: 520px;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
 }
-.background .shape{
+
+.background .shape {
     height: 200px;
     width: 200px;
     position: absolute;
     border-radius: 50%;
 }
-.shape:first-child{
-    background: linear-gradient(
-        #9b22ea,
-        #bf23f6
-    );
+
+.shape:first-child {
+    background: linear-gradient(#9b22ea, #bf23f6);
     left: -80px;
     top: -80px;
 }
-.shape:last-child{
-    background: linear-gradient(
-        to right,
-        #ff512f,
-        #f09819
-    );
+
+.shape:last-child {
+    background: linear-gradient(to right, #ff512f, #f09819);
     right: -30px;
     bottom: -80px;
 }
-  .main{
-      width: 100%;
-  }
-  .main .glass-container{
+
+/* ============================================================
+   MAIN SECTION & GLASS CARD
+   ============================================================ */
+.main {
+    width: 100%;
+}
+
+.main .glass-container {
     position: absolute;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
     width: 300px;
     height: 500px;
-    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     border-radius: 20px;
     backdrop-filter: blur(10px);
     background-color: rgba(255, 255, 255, 0.07);
@@ -61,8 +71,12 @@ p {
     align-items: center;
     justify-content: center;
     direction: rtl;
-  }
-  .main .glass-container h2{
+}
+
+/* ============================================================
+   HEADING
+   ============================================================ */
+.main .glass-container h2 {
     font-family: "Noto Nastaliq Urdu", serif;
     font-optical-sizing: auto;
     font-weight: 700;
@@ -72,6 +86,7 @@ p {
     position: absolute;
     top: 35px;
 }
+
 .main .glass-container h2::after {
     content: "";
     height: 2px;
@@ -82,23 +97,37 @@ p {
     transform: translateX(-50%);
     top: 74px;
 }
-.main .glass-container p{
+
+/* ============================================================
+   VERSE TEXT
+   ============================================================ */
+.main .glass-container p {
     color: white;
     font-size: 25px;
-    transition: .4s;
+    transition: opacity 0.4s ease;
+    padding: 0 16px;
 }
-.main .glass-container p::before{
+
+.main .glass-container p::before {
     content: "\"";
     color: #ffffff;
 }
-.main .glass-container p::after{
+
+.main .glass-container p::after {
     content: "\"";
     color: #ffffff;
 }
-.main .glass-container button{
+
+/* ============================================================
+   NEXT BUTTON (arrow)
+   ============================================================ */
+.main .glass-container button.next {
     position: absolute;
     top: 78%;
-    margin-right: 140px;
+    /* offset to the right side (RTL layout) */
+    right: 20px;
+    left: auto;
+    margin: 0;
     padding: 5px 20px;
     border-radius: 25px;
     border: 1px solid #b606dc;
@@ -113,27 +142,158 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: row-reverse;
+    cursor: pointer;
 }
-.main .glass-container .btn-2{
+
+.main .glass-container button.next img {
+    width: 35px;
+}
+
+/* ============================================================
+   SHARE WRAPPER  (positions the button + popup together)
+   ============================================================ */
+.share-wrapper {
     position: absolute;
     top: 78%;
-    margin-left: 282px;
-    padding: 4px 17px;
+    left: 20px;
+    right: auto;
+}
+
+/* ============================================================
+   SHARE BUTTON
+   ============================================================ */
+.btn-share {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 18px;
     border-radius: 25px;
     border: 1px solid #b606dc;
-    background-color: #c504eb00;
+    background-color: transparent;
     color: white;
     font-size: 15px;
     width: 120px;
+    font-family: "Noto Nastaliq Urdu", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    cursor: pointer;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.btn-share:hover {
+    background-color: rgba(182, 6, 220, 0.2);
+}
+
+.btn-share i {
+    font-size: 16px;
+}
+
+/* ============================================================
+   SHARE POPUP
+   ============================================================ */
+.share-popup {
+    position: absolute;
+    /* sits just above the share button */
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 160px;
+    background: rgba(20, 10, 30, 0.85);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(182, 6, 220, 0.4);
+    border-radius: 14px;
+    padding: 12px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 100;
+
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+}
+
+/* Visible state toggled by JS */
+.share-popup.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Small label */
+.popup-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    font-family: "Noto Nastaliq Urdu", serif;
+    letter-spacing: 0.03em;
+}
+
+/* Row of social icon buttons */
+.social-icons {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+/* Individual social icon button */
+.social-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
     display: flex;
     align-items: center;
-    justify-content: left;
-    flex-direction: row-reverse;
+    justify-content: center;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.15s ease, filter 0.15s ease;
 }
-.main .glass-container button img{
-    width: 35px;
+
+.social-btn:hover {
+    transform: scale(1.15);
+    filter: brightness(1.2);
 }
-.main .glass-container .btn-2 img{
-    width: 35px;
+
+/* Platform colours */
+.social-btn.whatsapp  { background-color: #25D366; }
+.social-btn.twitter   { background-color: #000000; }
+.social-btn.facebook  { background-color: #1877F2; }
+.social-btn.instagram {
+    background: radial-gradient(circle at 30% 107%,
+        #fdf497 0%, #fdf497 5%,
+        #fd5949 45%, #d6249f 60%,
+        #285AEB 90%);
+}
+
+/* Small arrow pointing down from popup toward the button */
+.share-popup::after {
+    content: "";
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 7px 7px 0 7px;
+    border-style: solid;
+    border-color: rgba(182, 6, 220, 0.4) transparent transparent transparent;
+}
+
+/* ============================================================
+   RESPONSIVE — narrow screens
+   ============================================================ */
+@media (max-width: 360px) {
+    .main .glass-container {
+        width: 92vw;
+        height: 90vw;
+        min-height: 420px;
+    }
+
+    .background {
+        width: 92vw;
+    }
 }
