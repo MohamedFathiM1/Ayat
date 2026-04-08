@@ -196,7 +196,7 @@ body {
 .share-popup {
     position: absolute;
     /* sits just above the share button */
-    bottom: calc(100% + 10px);
+    top: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
     width: 190px;
@@ -275,7 +275,7 @@ body {
 .share-popup::after {
     content: "";
     position: absolute;
-    bottom: -7px;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     border-width: 7px 7px 0 7px;
