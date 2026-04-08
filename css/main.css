@@ -199,7 +199,7 @@ body {
     bottom: calc(100% + 10px);
     left: 50%;
     transform: translateX(-50%);
-    width: 160px;
+    width: 190px;
     background: rgba(20, 10, 30, 0.85);
     backdrop-filter: blur(14px);
     border: 1px solid rgba(182, 6, 220, 0.4);
