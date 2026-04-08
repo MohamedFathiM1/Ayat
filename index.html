@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gulzar&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400..700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <!-- Font Awesome for social share icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>أيات</title>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <section class="main">
+        <div class="glass-container">
+            <h2>بسم الله الرحمن الرحيم</h2>
+
+            <!-- Verse content injected dynamically by master.js -->
+            <div class="content"></div>
+
+            <!-- Next verse button -->
+            <button class="next" title="الآية التالية">
+                <img src="./css/white-arrow-png-transparent-20.png" alt="التالي">
+            </button>
+
+            <!-- Share button + popup wrapper -->
+            <div class="share-wrapper">
+                <button class="btn-share" id="shareBtn" title="مشاركة">
+                    <i class="fa-solid fa-share-nodes"></i>
+                    مشاركة
+                </button>
+
+                <!-- Popup is hidden by default; toggled via JS -->
+                <div class="share-popup" id="sharePopup" aria-hidden="true">
+                    <span class="popup-label">شارك عبر</span>
+                    <div class="social-icons">
+                        <button class="social-btn whatsapp" data-platform="whatsapp" title="واتساب">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </button>
+                        <button class="social-btn twitter" data-platform="twitter" title="تويتر / X">
+                            <i class="fa-brands fa-x-twitter"></i>
+                        </button>
+                        <button class="social-btn facebook" data-platform="facebook" title="فيسبوك">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </button>
+                        <button class="social-btn instagram" data-platform="instagram" title="إنستغرام">
+                            <i class="fa-brands fa-instagram"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="./js/master.js"></script>
+</body>
+</html>
